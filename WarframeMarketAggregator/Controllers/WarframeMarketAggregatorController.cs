@@ -17,7 +17,7 @@ namespace WarframeMarketAggregator.Controllers
             _itemCacheService = itemCacheService;
         }
 
-        [HttpGet("item")]
+        [HttpGet("items")]
         public async Task<IEnumerable<string>> GetItemManifest()
         {
             return (await _itemCacheService.GetItems()).Select(item => item.UrlName);
