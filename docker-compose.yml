@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  warframemarketaggregator:
+    image: warframemarketaggregator
+    build:
+      context: .
+      dockerfile: WarframeMarketAggregator/Dockerfile
+    volumes:
+      - C:\\logs:/logs
+      - ./:/app
