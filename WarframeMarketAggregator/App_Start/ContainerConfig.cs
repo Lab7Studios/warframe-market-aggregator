@@ -11,6 +11,7 @@ namespace WarframeMarketAggregator.App_Start
             services.AddTransient<IMarketService, WarframeMarketService>();
             services.AddTransient<IItemService, ItemService>();
             services.AddSingleton<IItemCacheService, ItemCacheService>();
+	        services.AddTransient<ICacheFileManager, CacheFileManager>();
         }
     }
 }

@@ -56,8 +56,15 @@ namespace WarframeMarketAggregator
 
             app.UseHangfireServer();
 
-            applicationLifetime.ApplicationStarted.Register(() => 
-                CacheBootstrapper.Bootstrap(app.ApplicationServices.GetService<IItemCacheService>()));
+	        applicationLifetime.ApplicationStarted.Register(() =>
+	        {
+				// Initialize the item cache from a file, if it exists
+				// Otherwise, load the items normally
+		        BackgroundJob.Enqueue<ICacheFileManager>(cacheFileManager => cacheFileManager.RefreshItems(false));
+
+				// Once a day, force a refresh of all items and update the cache file
+				RecurringJob.AddOrUpdate<ICacheFileManager>(cacheFileManager => cacheFileManager.RefreshItems(true), Cron.Daily());
+	        });
         }
     }
 }
