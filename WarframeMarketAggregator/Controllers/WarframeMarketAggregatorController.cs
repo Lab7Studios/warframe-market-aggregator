@@ -24,7 +24,7 @@ namespace WarframeMarketAggregator.Controllers
         }
 
 	    [HttpGet("items")]
-	    public async Task<IEnumerable<ItemWithStatistics>> GetCompleteDataset()
+	    public async Task<IEnumerable<ItemWithStatistics>> GetItems()
 	    {
 		    return await _itemCacheService.GetItems();
 	    }
