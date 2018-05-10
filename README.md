@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/gu1pvk7ipw3b9e1t/branch/master?svg=true)](https://ci.appveyor.com/project/rehret/warframe-market-aggregator/branch/master)
+
 # Warframe Market Aggregator
 Service to fetch and cache data from [Warframe Market](http://warframe.market).
 
