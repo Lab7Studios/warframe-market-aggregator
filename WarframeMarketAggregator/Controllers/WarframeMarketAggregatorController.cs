@@ -17,28 +17,28 @@ namespace WarframeMarketAggregator.Controllers
             _itemCacheService = itemCacheService;
         }
 
-        [HttpGet("items")]
+        [HttpGet("manifest")]
         public async Task<IEnumerable<string>> GetItemManifest()
         {
             return (await _itemCacheService.GetItems()).Select(item => item.UrlName);
         }
 
-        [HttpGet("item/{itemUrlName}")]
+	    [HttpGet("items")]
+	    public async Task<IEnumerable<ItemWithStatistics>> GetCompleteDataset()
+	    {
+		    return await _itemCacheService.GetItems();
+	    }
+
+		[HttpGet("items/{itemUrlName}")]
         public async Task<ItemInSet> GetItem(string itemUrlName)
         {
             return (await _itemCacheService.GetItems()).First(item => item.UrlName == itemUrlName);
         }
 
-        [HttpGet("item/{itemUrlName}/statistics")]
+        [HttpGet("items/{itemUrlName}/statistics")]
         public async Task<ItemStatistic> GetItemStatistic(string itemUrlName)
         {
             return (await _itemCacheService.GetItems()).First(item => item.UrlName == itemUrlName)?.Statistics;
-        }
-
-        [HttpGet("dataset")]
-        public async Task<IEnumerable<ItemWithStatistics>> GetCompleteDataset()
-        {
-            return await _itemCacheService.GetItems();
         }
     }
 }
