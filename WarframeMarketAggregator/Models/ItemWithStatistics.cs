@@ -1,6 +1,6 @@
 ﻿namespace WarframeMarketAggregator.Models
 {
-    public class ItemWithStatistics : ItemInSet
+    public class ItemWithStatistics : Item
     {
         public ItemStatistic Statistics { get; set; }
     }

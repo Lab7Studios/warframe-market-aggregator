@@ -31,14 +31,14 @@ namespace WarframeMarketAggregator.Services
             }
         }
 
-        public async Task<IEnumerable<ItemInSet>> GetItemsInSet(string itemUrlName)
+        public async Task<IEnumerable<Item>> GetItemsInSet(string itemUrlName)
         {
             using (var httpClient = new HttpClient())
             {
                 var response = await httpClient.GetAsync($"{_baseUrl}/{itemUrlName}");
                 response.EnsureSuccessStatusCode();
                 var jObject = JObject.Parse(await response.Content.ReadAsStringAsync());
-                return JObjectToObject<IEnumerable<ItemInSet>>(jObject["payload"]["item"]["items_in_set"]);
+                return JObjectToObject<IEnumerable<Item>>(jObject["payload"]["item"]["items_in_set"]);
             }
         }
 

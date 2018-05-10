@@ -8,7 +8,7 @@ namespace WarframeMarketAggregator.Interfaces
     {
         Task<IEnumerable<ItemManifest>> GetItemManifest();
 
-        Task<IEnumerable<ItemInSet>> GetItemsInSet(string itemUrlName);
+        Task<IEnumerable<Item>> GetItemsInSet(string itemUrlName);
 
         Task<ItemStatistic> GetItemStatistic(string itemUrlName);
 

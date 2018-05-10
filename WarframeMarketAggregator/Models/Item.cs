@@ -2,9 +2,9 @@
 
 namespace WarframeMarketAggregator.Models
 {
-    public class ItemInSet
+    public class Item
     {
-        public ItemInSetLocalization En { get; set; }
+        public ItemLocalization En { get; set; }
 
         public string UrlName { get; set; }
 

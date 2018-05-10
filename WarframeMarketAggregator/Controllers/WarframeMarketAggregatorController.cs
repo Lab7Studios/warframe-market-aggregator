@@ -30,7 +30,7 @@ namespace WarframeMarketAggregator.Controllers
 	    }
 
 		[HttpGet("items/{itemUrlName}")]
-        public async Task<ItemInSet> GetItem(string itemUrlName)
+        public async Task<Item> GetItem(string itemUrlName)
         {
             return (await _itemCacheService.GetItems()).First(item => item.UrlName == itemUrlName);
         }

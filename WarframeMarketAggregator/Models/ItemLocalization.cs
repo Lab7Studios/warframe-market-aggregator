@@ -1,6 +1,6 @@
 ﻿namespace WarframeMarketAggregator.Models
 {
-    public class ItemInSetLocalization
+    public class ItemLocalization
     {
         public string ItemName { get; set; }
         
